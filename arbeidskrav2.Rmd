@@ -17,23 +17,8 @@ link-citations: yes
 lang: nb-NO
 ---
 
-<<<<<<< HEAD
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 #Er det høyde som bestemmer inntekt? 
 
 I denne artikkelen skal vi skrive om det er høyden som påvirker inntekten. Vi skal bruke ulike litterturkilder som skal hjelpe til å støtte opp de analysenne vi utfører. Vi skal presentere ulike datsett og beskrive hva de betyr. blablablablabl
@@ -42,5 +27,5 @@ I denne artikkelen skal vi skrive om det er høyden som påvirker inntekten. Vi 
 data('heights', package ='modelr')
 hoyde <- heights
 ```
->>>>>>> 753cd3626d5a5eb6ebf2f97637fba3ae0d661118
+
 
