@@ -1,9 +1,9 @@
 ---
-title: "«R Notebooks» and reproducibility"
-author: Assignment 1 i kurset Data Science 2021 - Karoline Midtbø og Morten Knutsen 
+title: "Er  det  høyde  som  bestemmer  inntekt?"
+author: Assignment 2 i kurset Data Science 2021 - Karoline Midtbø og Morten Knutsen 
 affiliation: HVL
 email: 579729@stud.hvl.no 575413@stud.hvl.no
-bibliography: reproducibility.bib
+bibliography: hoydepavirkerinntekt.bib
 csl: apa-no-ampersand.csl
 fontsize: 12pt
 output:
@@ -16,3 +16,13 @@ output:
 link-citations: yes
 lang: nb-NO
 ---
+
+#Er det høyde som bestemmer inntekt? 
+
+I denne artikkelen skal vi skrive om det er høyden som påvirker inntekten. Vi skal bruke ulike litterturkilder som skal hjelpe til å støtte opp de analysenne vi utfører. Vi skal presentere ulike datsett og beskrive hva dem forteller oss 
+
+```{r}
+data('heights', package ='modelr')
+hoyde <- heights
+```
+
