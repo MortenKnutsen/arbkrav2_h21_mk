@@ -3,7 +3,7 @@ title: "«R Notebooks» and reproducibility"
 author: Assignment 1 i kurset Data Science 2021 - Karoline Midtbø og Morten Knutsen 
 affiliation: HVL
 email: 579729@stud.hvl.no 575413@stud.hvl.no
-bibliography: reproducibility.bib
+bibliography: hoyde pavirker inntekten.bib
 csl: apa-no-ampersand.csl
 fontsize: 12pt
 output:
@@ -16,3 +16,20 @@ output:
 link-citations: yes
 lang: nb-NO
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
