@@ -3,7 +3,7 @@ title: "Er  det  høyde  som  bestemmer  inntekt?"
 author: Assignment 2 i kurset Data Science 2021 - Karoline Midtbø og Morten Knutsen 
 affiliation: HVL
 email: 579729@stud.hvl.no 575413@stud.hvl.no
-bibliography: hoydepavirkerinntekt.bib
+bibliography: hoyde pavirker inntekten.bib
 csl: apa-no-ampersand.csl
 fontsize: 12pt
 output:
@@ -17,12 +17,25 @@ link-citations: yes
 lang: nb-NO
 ---
 
-#Er det høyde som bestemmer inntekt? 
+# Er det høyde som bestemmer inntekt?
 
-I denne artikkelen skal vi skrive om det er høyden som påvirker inntekten. Vi skal bruke ulike litterturkilder som skal hjelpe til å støtte opp de analysenne vi utfører. Vi skal presentere ulike datsett og beskrive hva dem forteller oss 
+I denne artikkelen skal vi skrive om det er høyden som påvirker inntekten. Vi skal bruke ulike litterturkilder som skal hjelpe til å støtte opp de analysenne vi utfører. Vi skal presentere ulike datsett og beskrive hva dem forteller oss
+
+## Litteraturgjennomgang
+
+I 2004 skrev Judge og Cable en artikkel om en teoretisk modell som fremstiller forholdet mellom fysisk høyde og karrieresuksess. De bruker da denne modellen til teste ulike hypoteser, basert på metaanalyse. Analysen skal presentere forholdet mellom høyde og suksess på arbeidsplassen til per dags dato, der resultatene tyder på at høye individer har en fordel i flere aspekter av karrieren.
+
+Det har vært omtalt om at høyere mennesker har en større suksess i livet, ifølge resultatene i artikkelen finnes det en liten sannhet i dette. Det tyder på at det er noen elementer som er lettere for høye mennesker pågrunn av at høyde er et sosialt ønsket ressurs. Eksempler på dette er som at høyere mennesker skal være mer overbevisende, bedre som ledere og mer attraktive som kompiser. En av grunnen til at det kan være slik er fordi dyr opptreder slik, jo høyere og større de er, jo farligere er de. I denne artikkelen var det utført fire undersøkelser av forholdet mellom høyde og inntektsforbindelsen i løpet av individets karriere.
+
+![Theoretical model of the height--career success relationship.](Skjermbilde%202021-10-20%20kl.%2021.50.21.png) I figuren over fremstilles forholdet mellom fysisk høyde og karrieresuksess. Modellen viser til at det er flere punkter som påvirker hverandre, her vil en se at høyde påvirker både sosial aktelse og selvfølelse. De vil igjen påvirke personers jobbpresentasjon og subjektiv ytelse som da til slutt pårviker suksess i karrieren.
+
+De ulike hypotesene de utførte var, 1:høyde er positivt relatert til oppstigning til ledelse. 2: Høyde er positivt knyttet til inntjening. Den siste hypotesen gikk ut på at høyde viser et simplex forhold til status, ytelse og deretter karrieresuksess, slik at høyde er sterkest relatert til status og minst sterkt knyttet til karrieresuksess.
+
+Resultatene til de ulike undersøkelsene var at høyden hadde en ukorrigert korrelasjon på .22 med kriteriene og en korrigert korrelasjon på .26. Konfidensintervallet utelukket null, noe som indikerer at en kan være trygg på at gjennomsnittlig høydegyldighet er null. Det samme gjelder for troverdighetsintervallet som indikerer at over 90% av de enkelte korrelasjonene er positive. Når det kommer til inndelingene så var det i kjønn, sosial aktelse, fremvekst av leder og jobb, oppgave eller akademiske prestasjoner mål på kriteriet. Disse ble brukt til å støtte opp hypotesene, der hypotese 1 ble støttet opp, hypotese 2 delvis og hypotese 3 støttet opp.
+
+
 
 ```{r}
-data('heights', package ='modelr')
+data('heights', package = 'modelr')
 hoyde <- heights
 ```
-
