@@ -22,7 +22,7 @@ lang: nb-NO
 
 #Er det høyde som bestemmer inntekt? 
 
-I denne artikkelen skal vi skrive om det er høyden som påvirker inntekten. Vi skal bruke ulike litterturkilder som skal hjelpe til å støtte opp de analysenne vi utfører. Vi skal presentere ulike datsett og beskrive hva de betyr. blablablablabl
+I denne artikkelen skal vi skrive om det er høyden som påvirker inntekten. Vi har sett på to ulike kilder som viser til ulike studier om hvordan høyd epåvirker inntekt. Der det uføres ulike undersøkelser for å finne ut om sannheten om at høyden spiller en rolle når det kommer til høyde. Vi skal også utføre ulike datasett der vi selv ser på hvordan høyde påvirker inntekt, ved bruk av ulike dataer. Til slutt skal vi komme frem til en konklusjon og presentere vårt svar på spørsmålet. 
 
 
 ## Litteraturgjennomgang
