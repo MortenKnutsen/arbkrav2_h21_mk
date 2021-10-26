@@ -17,19 +17,146 @@ link-citations: yes
 lang: nb-NO
 ---
 
+```{r}
+library(modelr)
+library(ggplot2)
+library(tinytex)
+library(tidyverse)
+library(ggpubr)
+library(huxtable)
+options(scipen = 999)
+```
+## Analyse
+
+```{r}
+hoyde <- heights
+attach(hoyde)
+```
+
+### Beskrivende statistikk
+
+- income: Dette er den årlige inntekten. Her ble topp to prosent av inntektene ble gjort om til gjennomsnittet mellom disse og erstatter inntektene som er i toppen. 
+- height: Høyde i tommer
+- weight: Vekt i pund 
+- age: Alder mellom 47 og 56 år. 
+- marital: Sivilstatus
+- sex: Kjønn: 
+- education: Antall år med utdanning 
+- afqt: Prosentscore i hvor mye du egner deg i militæret
+
+
+
+Her tar vi å gjør om til målenhetene til metriske. Vi har også lagt til tre nye variabler. 
+```{r}
+hoyde <- hoyde %>% 
+  mutate(inntekt = income * 8.42,
+         hoyde_cm = height * 2.54,
+         vekt_kg = weight * 0.454,
+         BMI = vekt_kg/(hoyde_cm/100)^2)
+```  
+
+### Exploratory Data Analysis (EDA) vha. ggplot
+
+Grunnen til utliggerne ut til høyre er på grunn av personvern under deltakelsen. Der de høyeste lønningene ble lagt sammen og regnt ut gjennomsnittet på disse lønningene. 
+
+```{r}
+ggplot(hoyde, mapping = aes(x = income)) +
+  geom_histogram()
+  geom_histogram(bins = 30)
+
+```
+
+```{r}
+hoyde_begr <- hoyde %>% 
+  filter(inntekt < 1500000,
+         inntekt > 1)
+```
+
+```{r}
+ggplot(data = hoyde_begr, aes(x = inntekt)) + 
+  geom_histogram()
+```
+
+
+```{r}
+sum(hoyde$income == 0)
+```
+Det er 1740 personer som står uten inntekt i dette datasettet
+
+
+## Regresjon 
+
+
+```{r}
+mod1 <- "inntekt ~ hoyde_cm"
+lm1 <- lm(mod1, data = hoyde, subset = complete.cases(hoyde))
+```
+
+
+```{r}
+summary(lm1)
+```
+```{r}
+-1361001 + (10047.9*162)
+-1361001 + (10047.9*161)
+```
+
+
+Vi ser at inntekten vil øke med 10047,9 kr per cm en øker i høyden. 
+
+```{r}
+mod2 <- "inntekt ~ hoyde_cm + vekt_kg"
+lm2 <- lm(mod2, data = hoyde, subset = complete.cases(hoyde))
+```
+
+```{r}
+summary(lm2)
+```
+
+```{r}
+-1466873.6 + (11430.3*162) + (-1518.4*62)
+-1466873.6 + (11430.3*161) + (-1518.4*61)
+```
+
+Det vi ser her er at når høyden øker så øker lønnen, men når vekten øker så gå lønnen ned. En kombinasjon av disse vil gi en økt inntekt. 
+
+
+```{r}
+mod3 <- "inntekt ~ hoyde_cm + vekt_kg + BMI"
+lm3 <- lm(mod3, data = hoyde, subset = complete.cases(hoyde))
+```
+```{r}
+summary(lm3)
+```
+```{r}
+hoyde <- hoyde %>% 
+  mutate(
+    married = factor(
+      case_when(
+        marital == 'married' ~ TRUE, TRUE ~ FALSE
+      )
+    )
+  )
+```
 
 
 
 
 
+```{r}
+huxreg(
+   list("mod1" = lm1, "mod2" = lm2, "mod3" = lm3),
+   error_format = "[{statistic}]",
+   note = "Regresjonstabell 3: {stars}. T statistics in brackets."
+   )
+```
 
+### interaksjon
 
-
-
-
-
-
-
-
+```{r}
+mod4 <- "inntekt ~ sex + hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
+lm4 <- lm(mod4, data = hoyde)
+summary(lm4)
+```
 
 
