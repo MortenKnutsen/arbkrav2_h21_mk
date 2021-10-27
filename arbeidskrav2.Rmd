@@ -28,10 +28,11 @@ library(ggpubr)
 library(huxtable)
 library(car)
 library(carData)
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 options(scipen = 999)
 ```
 
+\newpage
 
 # Er det høyde som bestemmer inntekt? 
 
