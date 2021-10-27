@@ -1,19 +1,21 @@
 ---
 title: "Er  det  høyde  som  bestemmer  inntekt?"
-author: Assignment 2 i kurset Data Science 2021 - Karoline Midtbø og Morten Knutsen 
-affiliation: HVL
-email: 579729@stud.hvl.no 575413@stud.hvl.no
-bibliography: hoyde pavirker inntekten.bib
+subtitle: "Assignment 2 i kurset Data Science 2021"
+author: 
+  - "Karoline Midtbø"
+  - "Morten Knutsen" 
+email: 
+  - "579729@stud.hvl.no" 
+  - "575413@stud.hvl.no"
+bibliography: hoyde-pavirker-inntekten.bib
 csl: apa-no-ampersand.csl
 fontsize: 12pt
 output:
-  pdf_document:
-    keep_tex: yes
+  pdf_document: default
   html_document:
     df_print: paged
   word_document: default
   html_notebook: default  
-link-citations: yes
 lang: nb-NO
 ---
 
