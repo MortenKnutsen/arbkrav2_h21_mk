@@ -7,10 +7,10 @@ bibliography: hoyde pavirker inntekten.bib
 csl: apa-no-ampersand.csl
 fontsize: 12pt
 output:
-  html_document:
-    df_print: paged
   pdf_document:
     keep_tex: yes
+  html_document:
+    df_print: paged
   word_document: default
   html_notebook: default  
 link-citations: yes
@@ -24,11 +24,10 @@ library(tinytex)
 library(tidyverse)
 library(ggpubr)
 library(huxtable)
+library(car)
+library(carData)
 options(scipen = 999)
 ```
-
-
-
 
 
 #Er det høyde som bestemmer inntekt? 
@@ -163,7 +162,7 @@ summary(lm3)
 ```
 
 ```{r}
-hoyde <- hoyde %>% 
+hoyde_begr <- hoyde %>% 
   mutate(
     married = factor(
       case_when(
@@ -175,7 +174,7 @@ hoyde <- hoyde %>%
 
 
 
-
+### Huxreg
 
 ```{r}
 huxreg(
@@ -188,9 +187,40 @@ huxreg(
 ### interaksjon
 
 ```{r}
-mod4 <- "inntekt ~ sex + hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
+mod4 <- "inntekt ~ sex*(hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2))"
 lm4 <- lm(mod4, data = hoyde)
 summary(lm4)
 ```
+### LinearHypothesis
+```{r}
+ linearHypothesis(lm4, c("sexfemale = 0", "sexfemale:hoyde_cm = 0","sexfemale:vekt_kg=0", "sexfemale:I(vekt_kg^2)=0", "sexfemale:BMI=0", "sexfemale:I(BMI^2)=0"))
+```
+
+```{r}
+mod5 <- "inntekt ~ hoyde_cm + vekt_kg + BMI"
+lm5 <- lm(mod5, data = hoyde_begr)
+summary(lm5)
+```
+
+```{r}
+hoyde_begr <- hoyde_begr %>% 
+  add_residuals(lm5)
+hoyde_begr
+```
+```{r}
+ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) + 
+  geom_point(
+    data = hoyde_begr,
+    mapping = aes(x = hoyde_cm, y = resid), 
+    colour = "grey40",
+    size = 0.3
+    ) +
+  facet_grid(sex ~ factor(married, labels = c("not married", "married")))
+```
+
+Det vi ser i dette plottet er høyde ikke bestemmer inntekt. Vi ser at høye menn kan tjene det samme som lave menn, det samme gjelder hos kvinner. En annen ting vi kan observere her er at menn tjener mer en kvinner. Vi ser også at det er litt høyere lønninger hos de som er gift, både hos kvinner og menn
+
+
+
 
 
