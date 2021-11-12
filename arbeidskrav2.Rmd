@@ -34,37 +34,77 @@ options(scipen = 999)
 
 \newpage
 
-# Er det høyde som bestemmer inntekt? 
+# Er det høyde som bestemmer inntekt?
 
-I denne artikkelen skal vi skrive om det er høyden som påvirker inntekten. Vi har sett på to ulike kilder som viser til ulike studier om hvordan høyd epåvirker inntekt. Der det uføres ulike undersøkelser for å finne ut om sannheten om at høyden spiller en rolle når det kommer til høyde. Vi skal også utføre ulike datasett der vi selv ser på hvordan høyde påvirker inntekt, ved bruk av ulike dataer. Til slutt skal vi komme frem til en konklusjon og presentere vårt svar på spørsmålet. 
+I denne artikkelen skal vi undersøke om det virkelig er en persons høyde som bestemmer vedkommendes inntekt.
+Vi har sett på to ulike kilder som viser til ulike studier om hvordan høyde påvirker inntekt.
+Vi vil teste vår modell både på det fulle datasettet og på reduserte datasett hvor personer uten inntekt og med ekstremt høy inntekt er sensurert bort.
+Dette for å teste robustheten til vår modell.
+Til slutt skal vi komme frem til en konklusjon og presentere vårt svar på spørsmålet.
 
-Her tar vi å gjør om til målenhetene til metriske. Vi har også lagt til tre nye variabler. 
-
+Vi velger å gjøre om til målenhetene til metriske mål.
+Dette vil ikke ha noen betydning for resultatene, bare presentasjonen av dem.
+Vi har også lagt til tre nye variabler.
 
 ## Litteraturgjennomgang
 
-I 2004 skrev Judge og Cable en artikkel der de inkluderte en analyse på om høyde påvirker inntekt. De utførte en analyse med flere kontrollvariabler. De kontrollvariablene var kjønn, alder, vekt og metode. I følge artikkelen kan kjønn ha en påvirkning på både høyde og inntekt. Innen høyde vil de si at gjennomsnittet på høyde på menn og kvinner har en forskjell. I Amerika er gjennomsnittet på menn på 175,5 og på kvinner er 161,7 som tilvarer en forskjell på 12,7[@judge2004]. Når det kommer til alder, vil mennesker i gjennomsnitt minske 5 cm i løpet av levetiden. Høyde og vekt er tydligvis korrelerte, men kan alikevell ha effekter i motsatte retninger, de bør derfor isolers og behandles hver for seg i en analyse. Den siste kontrollvariablene er metode der det vises til at det skal undersøkes på tvers av fire komplementære prøver. De begrenset analysene til personer som hadde et gjennomsnitt på 20 timer eller mer arbeid per uke, bortsett fra studie 1, der vi begrenset analysene til enkeltpersoner som var de primære lønnstakerne i familien.
+@judge2004 inkluderer en analyse av om høyde påvirker inntekt.
+De utførte en analyse med flere kontrollvariabler.
+De kontrollvariablene var kjønn, alder, vekt og metode.
+I følge artikkelen kan kjønn ha en påvirkning på både høyde og inntekt.
+For personers høyde vet vi at gjennomsnittet på høyde for menn og kvinner er forskjellig.
+I Amerika er gjennomsnittet for menn 175,5 cm, mens det er 161,7 cm for kvinner.
+Dette tilsvarer en forskjell på 12,7 cm [@judge2004].
+Når det kommer til alder, vil mennesker i gjennomsnitt minske 5 cm i løpet av levetiden.
+Høyde og vekt er tydeligvis korrelerte, men kan allikevel ha effekter i motsatte retninger, de bør derfor isoleres og behandles hver for seg i en analyse.
+Den siste kontrollvariablene er metode der det vises til at det skal undersøkes på tvers av fire komplementære prøver.
+De begrenset analysene til personer som hadde et gjennomsnitt på 20 timer eller mer arbeid per uke, bortsett fra studie 1, der de begrenset analysene til enkeltpersoner som var de primære lønnstakerne i familien.
 
-Studie 1 gikk ut på deltakere og prosedyre der de samlet inn alder, kjønn, høyde og vekt.I studiet 2 samlet de inn lønn, alder, kjønn, høyde og vekt fra en kilde. I studiet 3 samlet de samme data som i studiet 2 men bare i en ny kilde. I siste studiet fra en siste kilde. Resultatene de fikk av dette var at i alle studiene var høyden signifikant positivt korrelert med inntjeningen. I studie 1 viser regresjonsresultatene at alder forutsier positivt inntjening. For studie 2 forutsier kjønn negativ inntjening slik at kvinner tjener mindre enn menn. Alder forutsier positivt inntjening og vekt forutsier negativt inntjening. For studie 3 forutsier høyden betydelig inntjening. Til slutt, i studie 4, forutsier hver inntekt betydelig. Multippelkorrelasjonen er R = .29, og de uavhengige variablene forklarer 8% av variansen i inntjening. Ved å beregne gjennomsnittet på tvers av disse resultatene, finner vi ut at en person som er 72 tommer høy kan forventes å tjene 5.525 dollar mer per år enn noen som er 65 tommer høy, selv etter å ha kontrollert kjønn, vekt og alder.
+Studie 1 gikk ut på deltakere og prosedyre der de samlet inn alder, kjønn, høyde og vekt.I studie 2 samlet de inn lønn, alder, kjønn, høyde og vekt fra en kilde.
+I studiet 3 samlet de samme data som i studiet 2 men bare i en ny kilde.
+I siste studie fra en siste kilde.
+Resultatene de fikk av dette var at i alle studiene var høyden signifikant positivt korrelert med inntjeningen.
+I studie 1 viser regresjonsresultatene at alder forutsier positivt inntjening.
+For studie 2 forutsier kjønn negativ inntjening slik at kvinner tjener mindre enn menn.
+Alder forutsier positivt inntjening og vekt forutsier negativt inntjening.
+For studie 3 forutsier høyden betydelig inntjening.
+**Til slutt, i studie 4, forutsier hver inntekt betydelig. ?????**Multippelkorrelasjonen er R = .29, og de uavhengige variablene forklarer 8% av variansen i inntjening.
+Ved å beregne gjennomsnittet på tvers av disse resultatene, finner vi ut at en person som er 72 tommer høy kan forventes å tjene 5.525 dollar mer per år enn noen som er 65 tommer høy, selv etter å ha kontrollert for kjønn, vekt og alder.
 
-I en annen artikkel skrevet av Deaton og Arora ble det brukt data fra Gallup-Healthways Well-Being Index, der de hadde daglige meningsmåling om å undersøke forholdet mellom høyde og en rekke emosjonelle og evaluerende utfall. De ser på 454 065 voksne i alderen 18 år eller eldre som ble intervjuet fra 2. januar 2008 til 16. april 2009. De ble da spørt om høyde og ble bedt om å plasere livssituasjon i en rank fra 0 til 10, der 0 fra "det verste mulige liv for deg" og 10 var "det best mulige livet for deg". De bes også om å svare ja eller nei på spørsmål om følelsene de har hatt i løpet av dagen. Menn som er over gjennomsnittlig høyde rapporterer at de er litt mer enn en sjuendedel av trinnet på ranken over menn som er under gjennomsnittlig høyde, gjennomsnittlig poengsum på 6,55 mot 6,41. For kvinner er forskjellen mindre, med kvinner under gjennomsnittlig høyd litt mindre enn en tiendedel av ranken under kvinner over gjennomsnittlig høyde, gjennomsnittlig rank score 6,55 mot 6,64. En av de mest konsekvent kraftige prediktorene for livsevaluering er inntekt. Regresjonskoeffisienten for ranken på logaritmen for familieinntekt er 0,54 for kvinner og 0,60 for menn.Ifølge denne sammenligningen har hver ekstra tomme høyde samme effekt på rapportert livsevaluering som en 3,8% økning i familieinntekt for kvinner og 4,4% økning for menn [@deaton2009]. I følge studiet viser det et resultat på at høyere menn og kvinner er mer sannsynlig å rapportere glede og lykke, og mindre sannsynlig å rapportere smerte og tristhet. Stress og sinne er imidlertid mer sannsynlig å oppleve av mennesker over gjennomsnittlig høyde. Med ca. 2,54 cm høyere høyde sier studiet at en vil ha en 4,5–8,5 prosent økning i familieinntekt. 
-
+I en annen studie ble det brukt data fra Gallup-Healthways Well-Being Index, der de hadde daglige meningsmålinger for å undersøke forholdet mellom høyde og en rekke emosjonelle faktorer og evaluerende utfall [@deaton2009].
+De så på 454 065 voksne i alderen 18 år eller eldre som ble intervjuet fra 2.
+januar 2008 til 16.
+april 2009.
+De ble spurt om høyde og ble også bedt om å plassere sin livssituasjon i en rank fra 0 til 10, der 0 var "det verste mulige liv for deg" og 10 var "det best mulige livet for deg".
+De ble også bedt om å svare ja eller nei på spørsmål om følelsene de har hatt i løpet av dagen.
+Menn som er over gjennomsnittlig høyde rapporterer at de er litt mer enn en sjuendedel av trinnet på ranken over menn som er under gjennomsnittlig høyde, gjennomsnittlig poengsum på 6,55 mot 6,41.
+For kvinner er forskjellen mindre, med kvinner under gjennomsnittlig høyde litt mindre enn en tiendedel av ranken under kvinner over gjennomsnittlig høyde.
+Gjennomsnittlig rank score var her 6,55 mot 6,64.
+En av de mest konsekvent kraftige prediktorene for livsevaluering er inntekt.
+Regresjonskoeffisienten for ranken på logaritmen for familieinntekt er 0,54 for kvinner og 0,60 for menn.
+Ifølge denne sammenligningen har hver ekstra tomme høyde samme effekt på rapportert livsevaluering som en 3,8% økning i familieinntekt for kvinner og 4,4% økning for menn [@deaton2009].
+I følge studiet viser resultatene at høyere menn og kvinner har større sannsynlighet for å rapportere glede og lykke, og mindre sannsynlighet for å rapportere smerte og tristhet.
+Stress og sinne er imidlertid mer sannsynlig å oppleve av mennesker over gjennomsnittlig høyde.
+Med ca.
+2,54 cm høyere høyde sier studien at en vil ha en 4,5--8,5 prosent økning i familieinntekt.
+Se resultater fra @deaton2009 gjengitt i tabellene 2 og 3.
 
 ![Study 1 and 2](Skjermbilde%202021-10-21%20kl.%2010.30.39.png)
 
-![Study 3 and 4](Skjermbilde%202021-10-21%20kl.%2010.29.47.png)
-=======
-
-
-
+# ![Study 3 and 4](Skjermbilde%202021-10-21%20kl.%2010.29.47.png)
 
 ## Analyse
 
 ```{r}
-hoyde <- heights
-attach(hoyde)
+#hoyde <- heights
+#attach(hoyde)
+#Jeg vil generelt ikke anbefale bruk av attach(). Kan ha uønskete side-effekter
+#Greiste måte å få tak i datasettet og samtidig gi det vårt eget navn er
+hoyde <- modelr::heights
 ```
-Her tar vi å gjør om til målenhetene til metriske. Vi har også lagt til tre nye variabler. 
+
+Her tar vi å gjør om til målenhetene til metriske.
+Vi har også lagt til tre nye variabler.
 
 ```{r}
 hoyde <- hoyde %>% 
@@ -72,72 +112,76 @@ hoyde <- hoyde %>%
          hoyde_cm = height * 2.54,
          vekt_kg = weight * 0.454,
          BMI = vekt_kg/(hoyde_cm/100)^2)
-```  
-
+```
 
 ### Beskrivende statistikk
 
-- income: Dette er den årlige inntekten. Her ble topp to prosent av inntektene ble gjort om til gjennomsnittet mellom disse og erstatter inntektene som er i toppen. 
-- height: Høyde i tommer
-- weight: Vekt i pund 
-- age: Alder mellom 47 og 56 år. 
-- marital: Sivilstatus
-- sex: Kjønn: 
-- education: Antall år med utdanning 
-- afqt: Prosentscore i hvor mye du egner deg i militæret
+#### Beskrivelse av variablene
 
+-   income: Dette er den årlige inntekten. Her ble topp to prosent av inntektene ble gjort om til gjennomsnittet mellom disse og erstatter inntektene som er i toppen.
+-   height: Høyde i tommer
+-   weight: Vekt i pund
+-   age: Alder mellom 47 og 56 år.
+-   marital: Sivilstatus
+-   sex: Kjønn:
+-   education: Antall år med utdanning
+-   afqt: Prosentscore i hvor mye du egner deg i militæret
 
+#### Fordeling av inntekt
 
-Grunnen til utliggerne ut til høyre er på grunn av personvern under deltakelsen. Der de høyeste lønningene ble lagt sammen og regnt ut gjennomsnittet på disse lønningene. 
+Grunnen til utliggerne vi ser langt ut til høyre er ivaretakelse av personvern.
+De høyeste lønningene ble lagt sammen og så regnet man ut gjennomsnittet for disse lønningene.
 
 ```{r}
-ggplot(hoyde, mapping = aes(x = income)) +
-  geom_histogram()
-  geom_histogram(bins = 30)
+# pipe mer fleksibel hvis vi f.eks vil kjører filter på inntekt
+hoyde %>% 
+ggplot(mapping = aes(x = income)) +
+  # y = stat(density) for å få density istedenfor count på y-aksen
+  geom_histogram(mapping = aes(y = stat(density)), binwidth = 10000)
 
 ```
 
 ```{r}
+# Er det nødvendig å lage et nytt datasett? Jeg synes det er enklere å jobbe
+# med et datasett og så heller kjører filter på dette i en pipe f.eks
+# lm0 <- hoyde %>% 
+#             filter(inntekt < 1500000 & inntekt > 0) %>% 
+#             lm('inntekt ~ hoyde_cm', data = .)
 hoyde_begr <- hoyde %>% 
-  filter(inntekt < 1500000,
-         inntekt > 1)
+  filter(inntekt < 1500000 & inntekt > 0)
 ```
 
 ### Exploratory Data Analysis (EDA) vha. ggplot
 
 ```{r}
 ggplot(data = hoyde_begr, aes(x = inntekt)) + 
-  geom_histogram()
+  # legger inn binwidth så slipper en advarslene fra ggplot
+  geom_histogram(binwidth = 50000)
 ```
-
-
 
 ```{r}
 sum(hoyde$income == 0)
 ```
+
 Det er 1740 personer som står uten inntekt i dette datasettet
 
-
-
-## Regresjon 
-
+## Regresjon
 
 ```{r}
 mod1 <- "inntekt ~ hoyde_cm"
 lm1 <- lm(mod1, data = hoyde, subset = complete.cases(hoyde))
 ```
 
-
 ```{r}
 summary(lm1)
 ```
+
 ```{r}
 -1361001 + (10047.9*162)
 -1361001 + (10047.9*161)
 ```
 
-
-Vi ser at inntekten vil øke med 10047,9 kr per cm en øker i høyden. 
+Vi ser at inntekten vil øke med 10047,9 kr per cm en øker i høyden.
 
 ```{r}
 mod2 <- "inntekt ~ hoyde_cm + vekt_kg"
@@ -153,8 +197,8 @@ summary(lm2)
 -1466873.6 + (11430.3*161) + (-1518.4*61)
 ```
 
-Det vi ser her er at når høyden øker så øker lønnen, men når vekten øker så gå lønnen ned. En kombinasjon av disse vil gi en økt inntekt. 
-
+Det vi ser her er at når høyden øker så øker lønnen, men når vekten øker så gå lønnen ned.
+En kombinasjon av disse vil gi en økt inntekt.
 
 ```{r}
 mod3 <- "inntekt ~ hoyde_cm + vekt_kg + BMI"
@@ -176,8 +220,6 @@ hoyde_begr <- hoyde %>%
   )
 ```
 
-
-
 ### Huxreg
 
 ```{r}
@@ -195,7 +237,9 @@ mod4 <- "inntekt ~ sex*(hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2))"
 lm4 <- lm(mod4, data = hoyde)
 summary(lm4)
 ```
+
 ### LinearHypothesis
+
 ```{r}
  linearHypothesis(lm4, c("sexfemale = 0", "sexfemale:hoyde_cm = 0","sexfemale:vekt_kg=0", "sexfemale:I(vekt_kg^2)=0", "sexfemale:BMI=0", "sexfemale:I(BMI^2)=0"))
 ```
@@ -203,7 +247,11 @@ summary(lm4)
 Endelig modell
 
 ```{r}
-mod5 <- "inntekt ~ hoyde_cm + vekt_kg + BMI + education + afqt + sex + married + age + marital"
+# Dere kan ikke benytte married dummy-en og marital i samme modell. maritalmarried og married vil være
+# perfekt korrelert (wooldridge: "The dummy trap"). Variablen married vi har laget er en forenklet
+# utgave av marital
+#mod5 <- "inntekt ~ hoyde_cm + vekt_kg + BMI + education + afqt + sex + married + age + marital"
+mod5 <- "inntekt ~ hoyde_cm + vekt_kg + BMI + education + afqt + sex + married + age"
 lm5 <- lm(mod5, data = hoyde_begr)
 summary(lm5)
 ```
@@ -214,6 +262,7 @@ hoyde_begr <- hoyde_begr %>%
 hoyde_begr %>% 
   head(n =10)
 ```
+
 ```{r}
 ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) + 
   geom_point(
@@ -222,12 +271,87 @@ ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) +
     colour = "grey40",
     size = 0.3
     ) +
-  facet_grid(sex ~ factor(married, labels = c("not married", "married")))
+  facet_grid(sex ~ factor(married, labels = c("not married", "married"))) +
+  # legger inn regresjonslinje
+  geom_smooth(method = "lm", se = FALSE)
 ```
 
-Det vi ser i dette plottet er høyde ikke bestemmer inntekt. Vi ser at høye menn kan tjene det samme som lave menn, det samme gjelder hos kvinner. En annen ting vi kan observere her er at menn tjener mer en kvinner. Vi ser også at det er litt høyere lønninger hos de som er gift, både hos kvinner og menn
+Det vi ser i dette plottet er at høyde ikke bestemmer inntekt.
+Vi ser at høye menn kan tjene det samme som lave menn, det samme gjelder hos kvinner.
+En annen ting vi kan observere her er at menn tjener mer en kvinner.
+Vi ser også at det er litt høyere lønninger hos de som er gift, både hos kvinner og menn
+
+Samme type modell, men med interaksjon for kjønn.
+
+```{r}
+mod6 <- "inntekt ~ sex*(hoyde_cm + vekt_kg + BMI + education + afqt + married + age)"
+lm6 <- lm(mod6, data = hoyde_begr, subset = complete.cases(hoyde_begr))
+```
+
+```{r}
+# Robuste standard errors (robust mht. heteroskedastisitet)
+library(lmtest)
+library(sandwich)
+coeftest(lm6, vcov = vcovHC, type = "HC3")
+```
+
+```{r}
+# SE robust simultan test på koeffisienter
+library(car)
+linearHypothesis(lm6, c("sexfemale = 0", "hoyde_cm = 0", "vekt_kg = 0", "BMI = 0", "age = 0", "sexfemale:hoyde_cm = 0", "sexfemale:vekt_kg=0", "sexfemale:BMI=0", "sexfemale:age = 0"), white.adjust = "hc3")
+```
+
+Vi ser at vi kan forkaste H0 om at disse koeffisientene er lik null.
+Imidlertid ser det ut som sammenhengen mellom inntekt og dissse er langt svarer enn for education, afqt og married.
+Prøver derfor en enklere modell
+
+```{r}
+mod7 <- "inntekt ~ sex*(education + afqt + married + age)"
+lm7 <- lm(mod7, data = hoyde_begr, subset = complete.cases(hoyde_begr))
+```
+
+```{r}
+coeftest(lm7, vcov = vcovHC, type = "HC3")
+```
+
+```{r}
+linearHypothesis(lm6, c("age = 0", "sexfemale:age = 0"), white.adjust = "hc3")
+```
+
+Vi ser at vi ikke kan forkaste H0 om at age koeffisientene er null.
+Derfor en siste enda enklere modell
+
+```{r}
+mod8 <- "inntekt ~ sex*(education + afqt + married)"
+lm8 <- lm(mod8, data = hoyde_begr, subset = complete.cases(hoyde_begr))
+```
+
+```{r}
+coeftest(lm8, vcov = vcovHC, type = "HC3")
+```
+
+Modellene 6, 7 og 8 er det vi kaller «nested» så vi kan benytte en likelihood ratio test for å finne hvilken som er best.
+
+```{r}
+logLik(lm6);logLik(lm7)
+```
+
+```{r}
+lrtest(lm7, lm6)
+```
+
+Ser at vi kan forkaste H0 om at den begrensede modell 7 er den rette.
+Tester så modell 6 mot 8
+
+```{r}
+lrtest(lm8, lm6)
+```
+
+Igjen kan vi forkaste H0 om at modellen bør begrenses til modell 8.
+Resultatet av Likelihood ratio testene er at modell 6 er den beste modellen.
+
+Da fikk dere litt økonometri også helt gratis ;-)
 
 \newpage
+
 # Referanser
-
-

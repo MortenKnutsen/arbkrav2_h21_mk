@@ -1,0 +1,11 @@
+---
+title: "AG comments"
+output: html_notebook
+---
+
+-   Kompilerte som html og pdf på første forsøk. Flott!
+-   Se mine forslag til å «stramme opp» språket og bruke referansene mer effektivt i litteraturgjennomgangen.
+-   Jeg har lagt inn noen forslag om hvordan dere lettere kan bruke subset vha. pipe og filter()
+-   Helt til slutt har jeg lagt inn litt kode som viser hvordan man får robuste standard errors i R
+-   Helt til slutt også hvordan man tester nøstede modeller mot hverandre
+-   arbeidet er godkjent
